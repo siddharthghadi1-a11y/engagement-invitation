@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Vaishnavi & Shubham - Engagement Invitation</title>
+  
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-cream: #FDFBF7;
+      --card-bg: #F7F3EC;
+      --text-dark: #2B2A29;
+      --text-muted: #7A7570;
+      --gold-accent: #B88E52;
+      --border-color: #E6E0D6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+    }
+
+    /* Fixed Navigation Header */
+    .top-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+      background-color: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(5px);
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .logo span {
+      font-style: italic;
+      color: var(--gold-accent);
+    }
+
+    .swiper-pagination {
+      position: static !important;
+      width: auto !important;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swiper-pagination-bullet {
+      width: 6px;
+      height: 6px;
+      background: #D1C9BF;
+      opacity: 1;
+      border-radius: 50%;
+      margin: 0 !important;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 24px;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--gold-accent);
+    }
+
+    /* Swiper Base */
+    .swiper {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 20px 25px 20px;
+      overflow-y: auto;
+      background-color: var(--bg-cream);
+    }
+
+    .content-wrapper {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    /* Typography */
+    .subtitle-sm {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .title-serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.15;
+    }
+
+    .title-serif span {
+      font-style: italic;
+      color: var(--gold-accent);
+    }
+
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin: 16px 0;
+      padding: 0 10px;
+    }
+
+    /* Cards */
+    .info-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 20px 16px;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+
+    .card-label {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .card-value-lg {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .card-value-lg span {
+      font-size: 0.9rem;
+      color: var(--gold-accent);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .card-subtitle {
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .action-link {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      text-decoration: none;
+      margin-top: 10px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--gold-accent);
+      padding-bottom: 2px;
+    }
+
+    /* SCRATCH CARD CONTAINER */
+    .scratch-container {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      height: 80px;
+      margin-top: 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: var(--card-bg);
+    }
+
+    .date-box-revealed {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 1;
+    }
+
+    .date-box-revealed .day-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--text-dark);
+    }
+
+    .date-box-revealed .divider {
+      width: 1px;
+      height: 30px;
+      background-color: #D5CFC7;
+    }
+
+    .date-box-revealed .date-details {
+      text-align: left;
+    }
+
+    .date-box-revealed .day-name {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: var(--gold-accent);
+      font-weight: 600;
+    }
+
+    .date-box-revealed .month-year {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    #scratchCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      cursor: pointer;
+      touch-action: none;
+    }
+
+    .scratch-hint {
+      font-size: 0.6rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      margin-top: 6px;
+    }
+
+    /* Dividers */
+    .ring-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      width: 100%;
+      margin: 15px 0;
+    }
+
+    .ring-divider .line {
+      height: 1px;
+      background-color: #E2DBD0;
+      flex-grow: 1;
+    }
+
+    .ring-divider .ring-icon {
+      color: var(--gold-accent);
+      font-size: 1rem;
+    }
+
+    /* Slide 1 Cover Button Overlay */
+    .tap-seal-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--gold-accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 20px auto 10px auto;
+      box-shadow: 0 4px 12px rgba(184, 142, 82, 0.4);
+      cursor: pointer;
+      border: none;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(184, 142, 82, 0.7); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(184, 142, 82, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(184, 142, 82, 0); }
+    }
+
+    .bottom-footer {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <div class="top-header">
+    <div class="logo">V <span>&</span> S</div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <!-- SLIDE 1: Cover View -->
+      <div class="swiper-slide">
+        <div class="content-wrapper">
+          <div class="subtitle-sm">A BEAUTIFUL BEGINNING</div>
+          <h1 class="title-serif" style="font-size: 3rem;">V <span>&</span> S</h1>
+          
+          <button class="tap-seal-btn" onclick="swiper.slideNext()">💍</button>
+
+          <div class="subtitle-sm" style="margin-top: 10px;">YOU'RE INVITED</div>
+          <p class="quote-text">TAP THE SEAL TO OPEN</p>
+        </div>
+        <div class="bottom-footer">
+          <div>VAISHNAVI & SHUBHAM · 2026</div>
+          <div>→</div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Announcement & Scratch Coupon Date -->
+      <div class="swiper-slide">
+        <div class="content-wrapper">
+          <div class="subtitle-sm">TOGETHER WITH OUR FAMILIES</div>
+          <h1 class="title-serif">We Are Getting<br><span>Engaged</span></h1>
+          
+          <div class="ring-divider">
+            <div class="line"></div>
+            <div class="ring-icon">💍</div>
+            <div class="line"></div>
+          </div>
+
+          <h1 class="title-serif" style="font-size: 2.2rem;">
+            Vaishnavi <span>&</span> Shubham
+          </h1>
+
+          <p class="quote-text">
+            "Two hearts, one promise, and a lifetime of beautiful tomorrows."
+          </p>
+
+          <!-- SCRATCH CARD DATE FEATURE -->
+          <div class="scratch-container">
+            <div class="date-box-revealed">
+              <div class="day-num">16</div>
+              <div class="divider"></div>
+              <div class="date-details">
+                <div class="day-name">FRIDAY</div>
+                <div class="month-year">OCTOBER 2026</div>
+              </div>
+            </div>
+            <canvas id="scratchCanvas"></canvas>
+          </div>
+          <div class="scratch-hint">✨ SCRATCH ABOVE TO REVEAL DATE</div>
+
+        </div>
+
+        <div class="bottom-footer">
+          <div>VAISHNAVI & SHUBHAM · 2026</div>
+          <div>→</div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: Save The Date / Venue -->
+      <div class="swiper-slide">
+        <div class="content-wrapper">
+          <div class="subtitle-sm">SAVE THE DATE</div>
+          <h1 class="title-serif">The <span>Day</span></h1>
+          <p class="quote-text" style="margin-bottom: 15px;">Come celebrate the promise of a beautiful forever</p>
+
+          <div class="info-card">
+            <div class="card-label">CEREMONY</div>
+            <div class="card-value-lg">11:30 <span>AM</span></div>
+            <div class="card-subtitle">ENGAGEMENT CEREMONY</div>
+            <div class="card-desc">Followed by lunch and celebrations</div>
+          </div>
+
+          <div class="info-card">
+            <div class="card-label">VENUE</div>
+            <div class="title-serif" style="font-size: 1.8rem;">Swapnil Farms</div>
+            <div class="card-subtitle">KARAMBAL</div>
+            <a href="https://maps.google.com/?q=Swapnil+Farms+Karambal" target="_blank" class="action-link">VIEW ON MAP</a>
+          </div>
+        </div>
+
+        <div class="bottom-footer">
+          <div>VAISHNAVI & SHUBHAM · 2026</div>
+          <div>→</div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: Dress Code (BUTTONS REMOVED) -->
+      <div class="swiper-slide">
+        <div class="content-wrapper">
+          <div class="subtitle-sm">IN YOUR FESTIVE BEST</div>
+          <h1 class="title-serif">Dress <span>Code</span></h1>
+          <p class="quote-text" style="margin-bottom: 15px;">A celebration of tradition, draped in elegance</p>
+
+          <div class="info-card" style="padding: 16px;">
+            <div class="card-label">01 · LADIES</div>
+            <div class="title-serif" style="font-size: 1.5rem;">Silk Saree</div>
+            <div class="card-desc">with a velvet blouse</div>
+          </div>
+
+          <div class="info-card" style="padding: 16px;">
+            <div class="card-label">02 · GIRLS</div>
+            <div class="title-serif" style="font-size: 1.5rem;">Lehenga</div>
+            <div class="card-desc">in festive jewel tones</div>
+          </div>
+
+          <div class="info-card" style="padding: 16px;">
+            <div class="card-label">03 · MEN & BOYS</div>
+            <div class="title-serif" style="font-size: 1.5rem;">Traditional</div>
+            <div class="card-desc">Indian outfits</div>
+          </div>
+        </div>
+
+        <div class="bottom-footer">
+          <div>VAISHNAVI & SHUBHAM · 2026</div>
+          <div>→</div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: Thank You -->
+      <div class="swiper-slide">
+        <div class="content-wrapper">
+          <div class="subtitle-sm">WITH LOVE AND GRATITUDE</div>
+          <h1 class="title-serif" style="font-size: 2.5rem; line-height: 1.2;">Your presence<br><span>will make us</span><br>happy</h1>
+          <p class="quote-text">We cannot wait to celebrate this beautiful beginning with you.</p>
+          <div class="subtitle-sm">THANK YOU</div>
+          <h1 class="title-serif" style="font-size: 2rem;">Vaishnavi <span>&</span> Shubham</h1>
+        </div>
+
+        <div class="bottom-footer">
+          <div>VAISHNAVI & SHUBHAM · 2026</div>
+          <div>✓</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Swiper JS & Canvas Scratch Logic -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: false,
+      allowTouchMove: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    // Reliable Scratch Card Logic
+    const canvas = document.getElementById('scratchCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    function initScratchCard() {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+
+      // Fill coating
+      ctx.fillStyle = '#C5A059';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Label text
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '600 12px Montserrat';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('SCRATCH TO REVEAL DATE', canvas.width / 2, canvas.height / 2);
+    }
+
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return {
+        x: clientX - rect.left,
+        y: clientY - rect.top
+      };
+    }
+
+    function scratch(e) {
+      if (!isDrawing) return;
+      const pos = getPos(e);
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 22, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Mouse Events
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      swiper.allowTouchMove = false; // Prevents swiping while scratching
+      scratch(e);
+    });
+    window.addEventListener('mousemove', scratch);
+    window.addEventListener('mouseup', () => {
+      isDrawing = false;
+      swiper.allowTouchMove = true;
+    });
+
+    // Touch Events
+    canvas.addEventListener('touchstart', (e) => {
+      isDrawing = true;
+      swiper.allowTouchMove = false; // Prevents swiping while scratching
+      scratch(e);
+    }, { passive: true });
+    
+    canvas.addEventListener('touchmove', scratch, { passive: true });
+    
+    window.addEventListener('touchend', () => {
+      isDrawing = false;
+      swiper.allowTouchMove = true;
+    });
+
+    window.addEventListener('load', initScratchCard);
+    window.addEventListener('resize', initScratchCard);
+  </script>
+</body>
+</html>
